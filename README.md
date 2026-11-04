@@ -30,18 +30,18 @@ npm run dev     # start the dev server at http://localhost:5173
 
 ## Scripts
 
-| Command                | Purpose                                        |
-| ---------------------- | ---------------------------------------------- |
-| `npm run dev`          | Start the Vite dev server                      |
-| `npm run build`        | Type-check and produce a production build      |
-| `npm run preview`      | Serve the production build locally             |
-| `npm run lint`         | Run ESLint                                     |
-| `npm run format`       | Format all files with Prettier                 |
-| `npm run format:check` | Verify formatting without changing files       |
-| `npm run typecheck`    | Run the TypeScript compiler without emitting   |
-| `npm test`             | Run unit/component tests once                  |
-| `npm run test:watch`   | Run tests in watch mode                        |
-| `npm run test:e2e`     | Run Playwright tests (see note below)          |
+| Command                | Purpose                                      |
+| ---------------------- | -------------------------------------------- |
+| `npm run dev`          | Start the Vite dev server                    |
+| `npm run build`        | Type-check and produce a production build    |
+| `npm run preview`      | Serve the production build locally           |
+| `npm run lint`         | Run ESLint                                   |
+| `npm run format`       | Format all files with Prettier               |
+| `npm run format:check` | Verify formatting without changing files     |
+| `npm run typecheck`    | Run the TypeScript compiler without emitting |
+| `npm test`             | Run unit/component tests once                |
+| `npm run test:watch`   | Run tests in watch mode                      |
+| `npm run test:e2e`     | Run Playwright tests (see note below)        |
 
 Run the full quality gate used by CI:
 

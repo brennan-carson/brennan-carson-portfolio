@@ -55,12 +55,12 @@ Content lives in `src/data/` as typed constants, with types in `src/types/`. Com
 
 ## Key decisions and alternatives
 
-| Decision                            | Alternative                       | Reason                                                                           |
-| ----------------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
-| Vite                                | Next.js, CRA                      | Static output, fast tooling, no server needed. CRA is deprecated.                |
-| `BrowserRouter`-style routing       | `HashRouter`                      | Clean URLs. Needs a 404 fallback on GitHub Pages (to be added at deploy time).   |
-| CSS Modules + variables             | Tailwind, CSS-in-JS               | No extra dependency or runtime, scoped styles, native theming.                   |
-| Typed data files                    | CMS, Markdown/MDX                 | Type-checked content with no infrastructure. Revisit MDX for long case studies.  |
-| Vitest + Testing Library            | Jest                              | Shares Vite config and transforms.                                               |
-| ESLint 9 (flat config), strict type-checked rules | Looser presets      | Catches more bugs; `any` is an error. Pinned to 9 for plugin compatibility.      |
-| System font stack                   | Web fonts                         | No external requests, fast, privacy-friendly.                                    |
+| Decision                                          | Alternative         | Reason                                                                          |
+| ------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------- |
+| Vite                                              | Next.js, CRA        | Static output, fast tooling, no server needed. CRA is deprecated.               |
+| `BrowserRouter`-style routing                     | `HashRouter`        | Clean URLs. Needs a 404 fallback on GitHub Pages (to be added at deploy time).  |
+| CSS Modules + variables                           | Tailwind, CSS-in-JS | No extra dependency or runtime, scoped styles, native theming.                  |
+| Typed data files                                  | CMS, Markdown/MDX   | Type-checked content with no infrastructure. Revisit MDX for long case studies. |
+| Vitest + Testing Library                          | Jest                | Shares Vite config and transforms.                                              |
+| ESLint 9 (flat config), strict type-checked rules | Looser presets      | Catches more bugs; `any` is an error. Pinned to 9 for plugin compatibility.     |
+| System font stack                                 | Web fonts           | No external requests, fast, privacy-friendly.                                   |

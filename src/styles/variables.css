@@ -17,8 +17,7 @@
   --color-neutral-bg: rgb(157 167 179 / 12%);
   --color-focus: #79c0ff;
 
-  --font-sans:
-    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
 
   --text-sm: 0.875rem;
