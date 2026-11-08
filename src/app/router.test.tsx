@@ -15,6 +15,7 @@ describe('app routing', () => {
     expect(screen.getByRole('navigation', { name: 'Primary' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: 'Projects' })).toBeInTheDocument();
     expect(screen.getAllByText('In Development').length).toBeGreaterThan(0);
+    expect(screen.queryByRole('link', { name: /resume/i })).not.toBeInTheDocument();
   });
 
   it('renders a project detail page', () => {

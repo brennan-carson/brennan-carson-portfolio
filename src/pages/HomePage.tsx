@@ -8,8 +8,6 @@ import { Section } from '../components/ui/Section';
 import styles from './HomePage.module.css';
 
 export function HomePage() {
-  const resumeHref = `${import.meta.env.BASE_URL}${site.resumePath}`;
-
   return (
     <>
       <section aria-labelledby="intro-heading" className={styles.hero}>
@@ -19,9 +17,11 @@ export function HomePage() {
         </h1>
         <p className={styles.summary}>{site.summary}</p>
         <div className={styles.actions}>
-          <ButtonLink href={resumeHref} variant="primary">
-            Resume (PDF)
-          </ButtonLink>
+          {site.resumePath && (
+            <ButtonLink href={`${import.meta.env.BASE_URL}${site.resumePath}`} variant="primary">
+              Resume (PDF)
+            </ButtonLink>
+          )}
           <ButtonLink href={site.githubUrl}>GitHub</ButtonLink>
           {site.linkedinUrl && <ButtonLink href={site.linkedinUrl}>LinkedIn</ButtonLink>}
         </div>
