@@ -14,8 +14,17 @@ describe('app routing', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Brennan Carson' })).toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Primary' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: 'Projects' })).toBeInTheDocument();
-    expect(screen.getAllByText('In Development').length).toBeGreaterThan(0);
+    expect(screen.getByRole('heading', { level: 2, name: 'Education' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Software Engineer II, UPS/ })).toBeInTheDocument();
+    expect(screen.getByText('Bachelor of Arts in Computer Science · May 2025')).toBeInTheDocument();
+    expect(screen.getAllByText('Completed')).toHaveLength(2);
+    expect(screen.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/robert-brennan-carson',
+    );
     expect(screen.queryByRole('link', { name: /resume/i })).not.toBeInTheDocument();
+    expect(document.querySelector('a[href^="mailto:"]')).not.toBeInTheDocument();
+    expect(document.querySelector('a[href^="tel:"]')).not.toBeInTheDocument();
   });
 
   it('renders a project detail page', () => {

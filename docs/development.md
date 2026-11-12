@@ -46,11 +46,11 @@
 
 1. Add an object matching `ExperienceEntry` (`src/types/experience.ts`) to `src/data/experience.ts` with a unique `id`.
 2. Use only verified responsibilities and accomplishments.
-3. The home page currently lists only role, company and dates; extend the rendering in `HomePage.tsx` (or extract an `ExperienceItem` component) when the real entries arrive.
+3. The home page renders the role, company, dates, location, accomplishments, responsibilities and technologies from each entry.
 
 ## Personal details
 
-Update `src/data/site.ts` for the summary, LinkedIn URL and contact email. Add the resume PDF at `public/resume/brennan-carson-resume.pdf`.
+Update `src/data/site.ts` for the summary and professional links. Do not add private contact details unless they are intentionally approved for publication. The resume PDF is not currently included in the repository; add a public copy only after confirming it contains no details you do not want published.
 
 ## Deployment (future)
 

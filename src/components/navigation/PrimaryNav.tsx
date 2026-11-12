@@ -5,6 +5,7 @@ const items = [
   { to: '/#experience', label: 'Experience' },
   { to: '/#projects', label: 'Projects' },
   { to: '/#skills', label: 'Skills' },
+  { to: '/#education', label: 'Education' },
   { to: '/#contact', label: 'Contact' },
 ] as const;
 

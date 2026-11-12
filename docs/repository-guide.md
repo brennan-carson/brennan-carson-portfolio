@@ -137,10 +137,10 @@ All routes sit under one layout route, so the header and footer never reload.
 
 ### `public/` (copied to the output unchanged)
 
-| File          | Purpose                                                                                      |
-| ------------- | -------------------------------------------------------------------------------------------- |
-| `favicon.svg` | Browser tab icon.                                                                            |
-| `resume/`     | Planned location for `brennan-carson-resume.pdf` (not created yet, so the Resume link 404s). |
+| File          | Purpose                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| `favicon.svg` | Browser tab icon.                                                                           |
+| `resume/`     | Optional location for a public-safe resume PDF; no resume is currently published or linked. |
 
 ### `src/app/`
 
@@ -163,7 +163,7 @@ The program entry point. It imports global CSS, finds `#root` and renders `<App 
 | `layout/Footer.tsx`                     | Copyright and GitHub/LinkedIn links.                                                           |
 | `navigation/PrimaryNav.tsx`             | In-page section links inside a labelled `<nav>`.                                               |
 | `projects/ProjectCard.tsx`              | One project summary card: name, status, tagline, technologies. Whole card is clickable.        |
-| `ui/Section.tsx`                        | A titled `<section>` wired to its heading for accessibility. Used four times on the home page. |
+| `ui/Section.tsx`                        | A titled `<section>` wired to its heading for accessibility. Used five times on the home page. |
 | `ui/ButtonLink.tsx`                     | Styled link; adds `rel`/`target` and a screen-reader hint for external URLs.                   |
 | `ui/StatusBadge.tsx`                    | Maps a project status to its label ("In Development") and colour.                              |
 | `ui/ThemeToggle.tsx`                    | Button that switches theme; uses `useTheme`.                                                   |
@@ -171,23 +171,23 @@ The program entry point. It imports global CSS, finds `#root` and renders `<App 
 
 ### `src/pages/`
 
-| File               | Purpose                                                                          |
-| ------------------ | -------------------------------------------------------------------------------- |
-| `HomePage.tsx`     | Hero plus experience, projects, skills and contact sections, built from `data/`. |
-| `ProjectPage.tsx`  | Detail page for one project, looked up by URL slug.                              |
-| `NotFoundPage.tsx` | 404 content; also reused by `ProjectPage` for unknown slugs.                     |
+| File               | Purpose                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| `HomePage.tsx`     | Hero plus experience, projects, skills, education and contact sections, built from `data/`. |
+| `ProjectPage.tsx`  | Detail page for one project, looked up by URL slug.                                         |
+| `NotFoundPage.tsx` | 404 content; also reused by `ProjectPage` for unknown slugs.                                |
 
 ### `src/data/` and `src/types/`
 
-| File                  | Purpose                                                                        |
-| --------------------- | ------------------------------------------------------------------------------ |
-| `types/project.ts`    | `Project`, `ProjectStatus` and `ProjectLink` shapes.                           |
-| `types/experience.ts` | `ExperienceEntry` shape.                                                       |
-| `types/skill.ts`      | `SkillCategory` shape.                                                         |
-| `data/projects.ts`    | The four planned projects (all marked In Development) and `findProject(slug)`. |
-| `data/experience.ts`  | Empty until real entries exist; the UI shows a placeholder.                    |
-| `data/skills.ts`      | Four empty categories; the UI shows "To be added".                             |
-| `data/site.ts`        | Name, title, summary, GitHub/LinkedIn/email, resume path.                      |
+| File                  | Purpose                                                                       |
+| --------------------- | ----------------------------------------------------------------------------- |
+| `types/project.ts`    | `Project`, `ProjectStatus` and `ProjectLink` shapes.                          |
+| `types/experience.ts` | `ExperienceEntry` shape.                                                      |
+| `types/skill.ts`      | `SkillCategory` shape.                                                        |
+| `data/projects.ts`    | Four projects, their current statuses and `findProject(slug)`.                |
+| `data/experience.ts`  | Verified UPS roles, accomplishments, responsibilities and technologies.       |
+| `data/skills.ts`      | Resume-based skills grouped by category.                                      |
+| `data/site.ts`        | Name, title, summary, professional links, education and optional resume path. |
 
 ### `src/hooks/` and `src/styles/`
 
@@ -237,4 +237,4 @@ Hands-on exercises, in order of difficulty:
 - Break a type on purpose (for example, a wrong `status` value) and read the compiler error.
 - Add a light-theme colour to `variables.css` and use it in one module.
 - Write a test for `StatusBadge`.
-- Extract an `ExperienceItem` component when you add the first real experience entry.
+- Consider extracting an `ExperienceItem` component if experience rendering grows more complex.

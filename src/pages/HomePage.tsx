@@ -34,12 +34,38 @@ export function HomePage() {
           <ul className={styles.stack}>
             {experience.map((entry) => (
               <li key={entry.id}>
-                <h3>
-                  {entry.role}, {entry.company}
-                </h3>
-                <p className={styles.placeholder}>
-                  {entry.startDate} &ndash; {entry.endDate}
-                </p>
+                <article className={styles.experienceEntry}>
+                  <header className={styles.experienceHeader}>
+                    <div>
+                      <h3>
+                        {entry.role}, {entry.company}
+                      </h3>
+                      <p className={styles.placeholder}>
+                        {entry.startDate} &ndash; {entry.endDate}
+                        {entry.location && ` · ${entry.location}`}
+                      </p>
+                    </div>
+                  </header>
+                  {entry.accomplishments.length > 0 && (
+                    <ul className={styles.detailList} aria-label="Selected accomplishments">
+                      {entry.accomplishments.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {entry.responsibilities.length > 0 && (
+                    <ul className={styles.detailList} aria-label="Responsibilities">
+                      {entry.responsibilities.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <ul className={styles.skillList} aria-label="Technologies used">
+                    {entry.technologies.map((technology) => (
+                      <li key={technology}>{technology}</li>
+                    ))}
+                  </ul>
+                </article>
               </li>
             ))}
           </ul>
@@ -75,6 +101,13 @@ export function HomePage() {
         </div>
       </Section>
 
+      <Section id="education" title="Education">
+        <h3>{site.education.institution}</h3>
+        <p className={styles.placeholder}>
+          {site.education.degree} · {site.education.graduationDate}
+        </p>
+      </Section>
+
       <Section id="contact" title="Contact">
         {site.email ? (
           <p>
@@ -82,8 +115,14 @@ export function HomePage() {
           </p>
         ) : (
           <p className={styles.placeholder}>
-            Contact details coming soon. In the meantime, reach out via{' '}
-            <a href={site.githubUrl}>GitHub</a>.
+            For professional inquiries, connect with me on{' '}
+            {site.linkedinUrl ? (
+              <>
+                <a href={site.linkedinUrl}>LinkedIn</a> or <a href={site.githubUrl}>GitHub</a>.
+              </>
+            ) : (
+              <a href={site.githubUrl}>GitHub</a>
+            )}
           </p>
         )}
       </Section>

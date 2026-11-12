@@ -2,7 +2,7 @@
 
 A personal software engineering portfolio: experience, projects, and technical skills. The site is also intended to be a portfolio-quality project in its own right: a clean, responsive, accessible, statically hosted frontend.
 
-Content is placeholder where details are not finalized. Projects that are unfinished are labeled "In Development".
+Experience, skills, education, and two completed projects are based on the provided resume. Watchtower and the learning platform remain labeled "In Development". No phone number, email address, or resume PDF is published.
 
 ## Technology stack
 
@@ -53,7 +53,7 @@ Before the first Playwright run, install a browser: `npx playwright install chro
 
 ## Resume
 
-Place the PDF at `public/resume/brennan-carson-resume.pdf`. Until it exists, the home page "Resume" link will 404.
+The resume is not currently published or linked. Only add a public-safe copy at `public/resume/brennan-carson-resume.pdf` after removing any contact details you do not want public, then set `resumePath` in `src/data/site.ts`.
 
 ## Production build
 

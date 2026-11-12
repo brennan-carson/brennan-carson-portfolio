@@ -29,7 +29,7 @@ Components are grouped by role rather than by page. A component moves into `ui/`
 
 React Router's data router (`createBrowserRouter`) with one layout route wrapping all pages:
 
-- `/` - home (introduction, experience, projects, skills, contact sections)
+- `/` - home (introduction, experience, projects, skills, education, contact sections)
 - `/projects/:slug` - project detail; unknown slugs render the not-found page
 - `*` - not found
 
@@ -39,7 +39,7 @@ The router `basename` comes from Vite's `BASE_URL`, so the app works at `/` or u
 
 ## Data organization
 
-Content lives in `src/data/` as typed constants, with types in `src/types/`. Components receive data and render it; they hold no hard-coded content. Empty arrays are valid and render placeholders, so no unverified claims are shown. `site.ts` holds identity and links; optional links (LinkedIn, email) are hidden while undefined.
+Content lives in `src/data/` as typed constants, with types in `src/types/`. Components receive data and render it; they hold no hard-coded content. `site.ts` holds identity, summary, education and links; optional links are hidden while undefined. Resume contact details are not published.
 
 ## Styling
 
