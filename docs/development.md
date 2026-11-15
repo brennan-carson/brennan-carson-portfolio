@@ -50,8 +50,8 @@
 
 ## Personal details
 
-Update `src/data/site.ts` for the summary and professional links. Do not add private contact details unless they are intentionally approved for publication. The resume PDF is not currently included in the repository; add a public copy only after confirming it contains no details you do not want published.
+Update `src/data/site.ts` for the summary, education and professional links. The email and LinkedIn links are intentionally public per the owner's request; do not add a phone number or resume file.
 
-## Deployment (future)
+## GitHub Pages deployment
 
-CI builds but does not deploy. GitHub Pages requires a deploy workflow, `VITE_BASE_PATH` for a project site, and a `404.html` copy of `index.html` for client-side routes. Not set up yet.
+The CI workflow deploys `main` to `https://brennan-carson.github.io/brennan-carson-portfolio/` after formatting, lint, typecheck, tests and build pass. It builds with `VITE_BASE_PATH=/brennan-carson-portfolio/` and copies `index.html` to `404.html` so direct visits to client-side project routes work. In repository Settings → Pages, choose **GitHub Actions** as the build and deployment source. Pull requests run verification but do not deploy.

@@ -2,7 +2,7 @@
 
 A personal software engineering portfolio: experience, projects, and technical skills. The site is also intended to be a portfolio-quality project in its own right: a clean, responsive, accessible, statically hosted frontend.
 
-Experience, skills, education, and two completed projects are based on the provided resume. Watchtower and the learning platform remain labeled "In Development". No phone number, email address, or resume PDF is published.
+Experience, skills, education, and project details are based on the provided resume. Watchtower is clearly labeled "In Development". The portfolio includes the requested email and LinkedIn links; it does not include a phone number or resume PDF.
 
 ## Technology stack
 
@@ -12,7 +12,7 @@ Experience, skills, education, and two completed projects are based on the provi
 - Vitest and React Testing Library (unit/component tests)
 - Playwright (end-to-end, prepared for future use)
 - ESLint and Prettier
-- GitHub Actions (CI); GitHub Pages is the intended static host
+- GitHub Actions (CI and deployment); GitHub Pages static hosting
 
 No backend or database.
 
@@ -51,10 +51,6 @@ npm run format:check && npm run lint && npm run typecheck && npm test && npm run
 
 Before the first Playwright run, install a browser: `npx playwright install chromium`.
 
-## Resume
-
-The resume is not currently published or linked. Only add a public-safe copy at `public/resume/brennan-carson-resume.pdf` after removing any contact details you do not want public, then set `resumePath` in `src/data/site.ts`.
-
 ## Production build
 
 ```bash
@@ -62,7 +58,7 @@ npm run build     # output in dist/
 npm run preview   # optional local check of dist/
 ```
 
-When hosting under a sub-path (GitHub Pages project site), set `VITE_BASE_PATH`, for example `VITE_BASE_PATH=/brennan-carson-portfolio/ npm run build`.
+GitHub Pages deploys the site at `https://brennan-carson.github.io/brennan-carson-portfolio/`. The workflow sets `VITE_BASE_PATH=/brennan-carson-portfolio/` for the production build and publishes only after all quality checks pass. To enable deployment, set the repository's Pages source to **GitHub Actions** in Settings → Pages.
 
 ## Documentation
 
