@@ -137,10 +137,9 @@ All routes sit under one layout route, so the header and footer never reload.
 
 ### `public/` (copied to the output unchanged)
 
-| File          | Purpose                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------- |
-| `favicon.svg` | Browser tab icon.                                                                           |
-| `resume/`     | Optional location for a public-safe resume PDF; no resume is currently published or linked. |
+| File          | Purpose           |
+| ------------- | ----------------- |
+| `favicon.svg` | Browser tab icon. |
 
 ### `src/app/`
 
@@ -160,7 +159,7 @@ The program entry point. It imports global CSS, finds `#root` and renders `<App 
 | --------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `layout/SiteLayout.tsx`                 | Page shell: skip link, header, `<main>`, footer. Also scrolls to `#hash` targets.              |
 | `layout/Header.tsx`                     | Site name link, primary nav and theme toggle.                                                  |
-| `layout/Footer.tsx`                     | Copyright and GitHub/LinkedIn links.                                                           |
+| `layout/Footer.tsx`                     | Copyright and professional links (GitHub, LinkedIn and email).                                 |
 | `navigation/PrimaryNav.tsx`             | In-page section links inside a labelled `<nav>`.                                               |
 | `projects/ProjectCard.tsx`              | One project summary card: name, status, tagline, technologies. Whole card is clickable.        |
 | `ui/Section.tsx`                        | A titled `<section>` wired to its heading for accessibility. Used five times on the home page. |
@@ -179,15 +178,15 @@ The program entry point. It imports global CSS, finds `#root` and renders `<App 
 
 ### `src/data/` and `src/types/`
 
-| File                  | Purpose                                                                       |
-| --------------------- | ----------------------------------------------------------------------------- |
-| `types/project.ts`    | `Project`, `ProjectStatus` and `ProjectLink` shapes.                          |
-| `types/experience.ts` | `ExperienceEntry` shape.                                                      |
-| `types/skill.ts`      | `SkillCategory` shape.                                                        |
-| `data/projects.ts`    | Four projects, their current statuses and `findProject(slug)`.                |
-| `data/experience.ts`  | Verified UPS roles, accomplishments, responsibilities and technologies.       |
-| `data/skills.ts`      | Resume-based skills grouped by category.                                      |
-| `data/site.ts`        | Name, title, summary, professional links, education and optional resume path. |
+| File                  | Purpose                                                                 |
+| --------------------- | ----------------------------------------------------------------------- |
+| `types/project.ts`    | `Project`, `ProjectStatus` and `ProjectLink` shapes.                    |
+| `types/experience.ts` | `ExperienceEntry` shape.                                                |
+| `types/skill.ts`      | `SkillCategory` shape.                                                  |
+| `data/projects.ts`    | Three projects, their current statuses and `findProject(slug)`.         |
+| `data/experience.ts`  | Verified UPS roles, accomplishments, responsibilities and technologies. |
+| `data/skills.ts`      | Resume-based skills grouped by category.                                |
+| `data/site.ts`        | Name, title, summary, professional links and education.                 |
 
 ### `src/hooks/` and `src/styles/`
 
@@ -204,7 +203,7 @@ The program entry point. It imports global CSS, finds `#root` and renders `<App 
 | -------------------------- | -------------------------------------------------------------------------------- |
 | `tests/setup.ts`           | Shared Vitest setup: jest-dom matchers, cleanup, `scrollTo` stub, storage reset. |
 | `e2e/home.spec.ts`         | One Playwright smoke test; more come later.                                      |
-| `.github/workflows/ci.yml` | On push and pull request: format check, lint, typecheck, test, build.            |
+| `.github/workflows/ci.yml` | Verifies pushes and pull requests; deploys passing main builds to GitHub Pages.  |
 | `README.md`                | Entry point: purpose, setup, scripts.                                            |
 | `docs/architecture.md`     | Design decisions and alternatives.                                               |
 | `docs/development.md`      | Day-to-day workflow and how to add content.                                      |

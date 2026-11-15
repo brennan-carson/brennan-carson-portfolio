@@ -17,11 +17,6 @@ export function HomePage() {
         </h1>
         <p className={styles.summary}>{site.summary}</p>
         <div className={styles.actions}>
-          {site.resumePath && (
-            <ButtonLink href={`${import.meta.env.BASE_URL}${site.resumePath}`} variant="primary">
-              Resume (PDF)
-            </ButtonLink>
-          )}
           <ButtonLink href={site.githubUrl}>GitHub</ButtonLink>
           {site.linkedinUrl && <ButtonLink href={site.linkedinUrl}>LinkedIn</ButtonLink>}
         </div>
@@ -104,27 +99,25 @@ export function HomePage() {
       <Section id="education" title="Education">
         <h3>{site.education.institution}</h3>
         <p className={styles.placeholder}>
-          {site.education.degree} · {site.education.graduationDate}
+          {site.education.degree} · GPA {site.education.gpa} · {site.education.graduationDate}
         </p>
       </Section>
 
       <Section id="contact" title="Contact">
-        {site.email ? (
-          <p>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-          </p>
-        ) : (
-          <p className={styles.placeholder}>
-            For professional inquiries, connect with me on{' '}
-            {site.linkedinUrl ? (
-              <>
-                <a href={site.linkedinUrl}>LinkedIn</a> or <a href={site.githubUrl}>GitHub</a>.
-              </>
-            ) : (
-              <a href={site.githubUrl}>GitHub</a>
-            )}
-          </p>
-        )}
+        <ul className={styles.contactLinks}>
+          {site.email && (
+            <li>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </li>
+          )}
+          {site.linkedinUrl && (
+            <li>
+              <a href={site.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                LinkedIn<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+          )}
+        </ul>
       </Section>
     </>
   );

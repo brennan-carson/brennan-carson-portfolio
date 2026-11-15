@@ -39,7 +39,7 @@ The router `basename` comes from Vite's `BASE_URL`, so the app works at `/` or u
 
 ## Data organization
 
-Content lives in `src/data/` as typed constants, with types in `src/types/`. Components receive data and render it; they hold no hard-coded content. `site.ts` holds identity, summary, education and links; optional links are hidden while undefined. Resume contact details are not published.
+Content lives in `src/data/` as typed constants, with types in `src/types/`. Components receive data and render it; they hold no hard-coded content. `site.ts` holds identity, summary, education and professional links. The owner-approved email and LinkedIn links are public; the phone number and resume file are not included.
 
 ## Styling
 
@@ -53,12 +53,16 @@ Content lives in `src/data/` as typed constants, with types in `src/types/`. Com
 
 `useTheme` keeps state locally and is used only by `ThemeToggle`. If more components need to read the theme, promote it to a context provider.
 
+## Hosting and deployment
+
+GitHub Pages hosts the static output at `https://brennan-carson.github.io/brennan-carson-portfolio/`. The CI workflow builds with `VITE_BASE_PATH=/brennan-carson-portfolio/`, preserves the base for client-side routing and assets, and uploads a `404.html` copy of the app shell for direct navigation to project routes. A successful verification on `main` triggers the Pages deployment; pull requests do not deploy. The repository's Pages source must be set to **GitHub Actions** in Settings → Pages.
+
 ## Key decisions and alternatives
 
 | Decision                                          | Alternative         | Reason                                                                          |
 | ------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------- |
 | Vite                                              | Next.js, CRA        | Static output, fast tooling, no server needed. CRA is deprecated.               |
-| `BrowserRouter`-style routing                     | `HashRouter`        | Clean URLs. Needs a 404 fallback on GitHub Pages (to be added at deploy time).  |
+| `BrowserRouter`-style routing                     | `HashRouter`        | Clean URLs. GitHub Pages receives a `404.html` SPA fallback during deployment.  |
 | CSS Modules + variables                           | Tailwind, CSS-in-JS | No extra dependency or runtime, scoped styles, native theming.                  |
 | Typed data files                                  | CMS, Markdown/MDX   | Type-checked content with no infrastructure. Revisit MDX for long case studies. |
 | Vitest + Testing Library                          | Jest                | Shares Vite config and transforms.                                              |

@@ -4,19 +4,24 @@ export const projects: readonly Project[] = [
   {
     slug: 'watchtower',
     name: 'Watchtower',
-    tagline: 'Application monitoring and status platform.',
-    description: 'Project description coming soon.',
+    tagline: 'A full-stack learning platform for structured lessons and interactive exercises.',
+    description:
+      'In development. The planned platform supports structured lessons, interactive exercises, automated assessments, and personalized progress tracking. The current implementation includes FastAPI and PostgreSQL APIs with modular service layers, JWT/RBAC, migrations, validation, and centralized exception handling; responsive React/TypeScript exercises with real-time feedback; and Redis-backed asynchronous exercise evaluation with retries. The project also includes pytest unit/integration suites, GitHub Actions quality gates, Docker Compose, and architecture/API documentation.',
     status: 'in-development',
-    technologies: [],
-    links: [],
-  },
-  {
-    slug: 'learning-platform',
-    name: 'Software Engineering Learning Platform',
-    tagline: 'A personal platform for learning and practicing software engineering concepts.',
-    description: 'Project description coming soon.',
-    status: 'in-development',
-    technologies: [],
+    technologies: [
+      'Python',
+      'FastAPI',
+      'TypeScript',
+      'React',
+      'PostgreSQL',
+      'Redis',
+      'Docker',
+      'Docker Compose',
+      'JWT',
+      'RBAC',
+      'pytest',
+      'GitHub Actions',
+    ],
     links: [],
   },
   {
@@ -24,9 +29,9 @@ export const projects: readonly Project[] = [
     name: 'FastAPI PDF Summarizer',
     tagline: 'A PDF summarization API with structured output.',
     description:
-      'Built a Python/FastAPI service with PDF upload and JSON/HTML endpoints. It extracts text, chunks longer documents for OpenAI summarization, and returns a consolidated summary and key points with input validation and error handling.',
+      'Built a Docker-packaged PDF upload API with text extraction, recursive chunking, and multi-stage OpenAI summarization. It returns structured summaries and key takeaways, with input validation and error responses.',
     status: 'completed',
-    technologies: ['Python', 'FastAPI', 'OpenAI API'],
+    technologies: ['Python', 'FastAPI', 'OpenAI API', 'Docker'],
     links: [],
   },
   {
@@ -34,9 +39,9 @@ export const projects: readonly Project[] = [
     name: 'Alfred',
     tagline: 'An AI assistant that summarizes GitHub pull requests.',
     description:
-      'Built a Node.js GitHub pull request assistant with Octokit and OpenAI. It generates structured summaries from pull request descriptions and changed-file metadata, posts them as comments, and skips pull requests that already have a summary.',
+      'Built an event-driven GitHub integration that summarizes pull request descriptions and changed-file metadata, then posts AI summaries through the REST API. It validates signed webhooks, protects against duplicate events, and centralizes error handling.',
     status: 'completed',
-    technologies: ['Node.js', 'Octokit', 'OpenAI API'],
+    technologies: ['Node.js', 'Express', 'Octokit', 'OpenAI API'],
     links: [],
   },
 ];
