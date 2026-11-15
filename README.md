@@ -1,8 +1,6 @@
-# Brennan Carson - Portfolio
+# Brennan Carson - My Portfolio
 
-A personal software engineering portfolio: experience, projects, and technical skills. The site is also intended to be a portfolio-quality project in its own right: a clean, responsive, accessible, statically hosted frontend.
-
-Experience, skills, education, and project details are based on the provided resume. Watchtower is clearly labeled "In Development". The portfolio includes the requested email and LinkedIn links; it does not include a phone number or resume PDF.
+A personal software engineering portfolio meant to showcase my experience, projects, and technical skills. I also wanted this site to be a portfolio-quality project in its own right by trying to create a clean, responsive, accessible, and statically hosted frontend.
 
 ## Technology stack
 
@@ -13,8 +11,6 @@ Experience, skills, education, and project details are based on the provided res
 - Playwright (end-to-end, prepared for future use)
 - ESLint and Prettier
 - GitHub Actions (CI and deployment); GitHub Pages static hosting
-
-No backend or database.
 
 ## Prerequisites
 
