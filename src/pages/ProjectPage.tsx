@@ -15,7 +15,7 @@ export function ProjectPage() {
 
   return (
     <article className={styles.article}>
-      <Link to="/#projects">&larr; All projects</Link>
+      <Link to="/projects">&larr; All projects</Link>
       <header className={styles.header}>
         <h1>{project.name}</h1>
         <StatusBadge status={project.status} />

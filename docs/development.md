@@ -38,7 +38,7 @@
 
 1. Open `src/data/projects.ts` and add an object matching `Project` in `src/types/project.ts`.
 2. Choose a unique, URL-safe `slug`; it becomes `/projects/<slug>`.
-3. Set `status` honestly: `'in-development'`, `'planned'` or `'completed'`.
+3. Set `status` honestly: `'in-development'`, `'planned'`, `'completed'`, or `'status-to-confirm'` when facts still need checking.
 4. Fill in `technologies` and `links` (use real URLs only).
 5. Confirm the card appears on the home page and the detail page loads.
 
@@ -46,7 +46,7 @@
 
 1. Add an object matching `ExperienceEntry` (`src/types/experience.ts`) to `src/data/experience.ts` with a unique `id`.
 2. Use only verified responsibilities and accomplishments.
-3. The home page renders the role, company, dates, location, accomplishments, responsibilities and technologies from each entry.
+3. The About page renders the role, company, dates, and selected accomplishments. Omit metrics or location details until they are approved for publication.
 
 ## Personal details
 

@@ -1,91 +1,60 @@
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  padding-block: var(--space-16) var(--space-12);
+  align-items: flex-start;
+  justify-content: center;
+  min-height: min(76svh, 52rem);
+  padding-block: var(--space-16);
+  padding-left: clamp(var(--space-6), 8vw, var(--space-24));
+  border-left: 1px solid var(--color-border);
 }
 
-.eyebrow {
-  color: var(--color-accent);
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
+.hero::before {
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  width: 3px;
+  height: 4.5rem;
+  background: var(--color-accent);
+  content: '';
+  transform: translateY(-50%);
 }
 
 .name {
-  font-size: var(--text-hero);
+  max-width: 10ch;
+  color: var(--color-text);
+  font-size: clamp(4rem, 11vw, 9rem);
+  letter-spacing: -0.065em;
+  line-height: 0.88;
 }
 
-.summary {
-  max-width: 40rem;
-  color: var(--color-text-muted);
-  font-size: var(--text-lg);
-}
-
-.actions {
+.title {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-3);
-  margin-top: var(--space-4);
-}
-
-.placeholder {
+  margin-top: var(--space-6);
   color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
+.title::before {
+  width: 2rem;
+  height: 1px;
+  background: var(--color-accent);
+  content: '';
 }
 
-.experienceEntry {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
+@media (max-width: 40rem) {
+  .hero {
+    min-height: 70svh;
+    padding-left: var(--space-4);
+  }
 
-.experienceHeader {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-2) var(--space-4);
-}
-
-.detailList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding-left: var(--space-6);
-  list-style: disc;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: var(--space-4);
-}
-
-.gridItem {
-  display: flex;
-}
-
-.gridItem > * {
-  flex: 1;
-}
-
-.categoryTitle {
-  margin-bottom: var(--space-2);
-  font-size: var(--text-base);
-}
-
-.skillList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.contactLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  .name {
+    font-size: clamp(3.75rem, 17vw, 6rem);
+  }
 }

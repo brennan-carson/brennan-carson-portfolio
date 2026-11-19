@@ -4,8 +4,15 @@ import { StatusBadge } from '../ui/StatusBadge';
 import styles from './ProjectCard.module.css';
 
 export function ProjectCard({ project }: { project: Project }) {
+  const statusClass = {
+    'in-development': styles.inDevelopment,
+    completed: styles.completed,
+    planned: styles.planned,
+    'status-to-confirm': styles.statusToConfirm,
+  }[project.status];
+
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${statusClass}`}>
       <div className={styles.header}>
         <h3 className={styles.title}>
           <Link to={`/projects/${project.slug}`} className={styles.link}>

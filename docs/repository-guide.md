@@ -74,11 +74,13 @@ flowchart TD
   Header --> PrimaryNav
   Header --> ThemeToggle
   Main --> HomePage
+  Main --> AboutPage
+  Main --> ProjectsPage
   Main --> ProjectPage
   Main --> NotFoundPage
-  HomePage --> ButtonLink
-  HomePage --> Section
-  Section --> ProjectCard
+  AboutPage --> Section
+  ProjectsPage --> Section
+  ProjectsPage --> ProjectCard
   ProjectCard --> StatusBadge
   ProjectPage --> StatusBadge
   ProjectPage --> ButtonLink
@@ -108,8 +110,10 @@ flowchart LR
 ```mermaid
 flowchart LR
   U1["/"] --> HomePage
-  U2["/projects/:slug"] --> ProjectPage
-  U3["anything else"] --> NotFoundPage
+  U2["/about"] --> AboutPage
+  U3["/projects"] --> ProjectsPage
+  U4["/projects/:slug"] --> ProjectPage
+  U5["anything else"] --> NotFoundPage
   ProjectPage -- "findProject(slug) is undefined" --> NotFoundPage
 ```
 
@@ -159,34 +163,36 @@ The program entry point. It imports global CSS, finds `#root` and renders `<App 
 | --------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `layout/SiteLayout.tsx`                 | Page shell: skip link, header, `<main>`, footer. Also scrolls to `#hash` targets.              |
 | `layout/Header.tsx`                     | Site name link, primary nav and theme toggle.                                                  |
-| `layout/Footer.tsx`                     | Copyright and professional links (GitHub, LinkedIn and email).                                 |
-| `navigation/PrimaryNav.tsx`             | In-page section links inside a labelled `<nav>`.                                               |
+| `layout/Footer.tsx`                     | Minimal copyright footer.                                                                      |
+| `navigation/PrimaryNav.tsx`             | Page links for Home, About, Projects, and the About contact section.                           |
 | `projects/ProjectCard.tsx`              | One project summary card: name, status, tagline, technologies. Whole card is clickable.        |
-| `ui/Section.tsx`                        | A titled `<section>` wired to its heading for accessibility. Used five times on the home page. |
+| `ui/Section.tsx`                        | A titled `<section>` wired to its heading for accessibility. Used on About and Projects pages. |
 | `ui/ButtonLink.tsx`                     | Styled link; adds `rel`/`target` and a screen-reader hint for external URLs.                   |
-| `ui/StatusBadge.tsx`                    | Maps a project status to its label ("In Development") and colour.                              |
+| `ui/StatusBadge.tsx`                    | Maps a project status, including "Status to Confirm", to a visible label and colour.           |
 | `ui/ThemeToggle.tsx`                    | Button that switches theme; uses `useTheme`.                                                   |
 | `*.module.css` (next to each component) | CSS Modules: class names are scoped to that component, so styles cannot leak.                  |
 
 ### `src/pages/`
 
-| File               | Purpose                                                                                     |
-| ------------------ | ------------------------------------------------------------------------------------------- |
-| `HomePage.tsx`     | Hero plus experience, projects, skills, education and contact sections, built from `data/`. |
-| `ProjectPage.tsx`  | Detail page for one project, looked up by URL slug.                                         |
-| `NotFoundPage.tsx` | 404 content; also reused by `ProjectPage` for unknown slugs.                                |
+| File               | Purpose                                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `HomePage.tsx`     | Minimal landing page with name and professional role.                                                             |
+| `AboutPage.tsx`    | Professional introduction, experience, skills, interests and contact. Education is withheld pending confirmation. |
+| `ProjectsPage.tsx` | Project cards grouped by development status.                                                                      |
+| `ProjectPage.tsx`  | Detail page for one project, looked up by URL slug.                                                               |
+| `NotFoundPage.tsx` | 404 content; also reused by `ProjectPage` for unknown slugs.                                                      |
 
 ### `src/data/` and `src/types/`
 
-| File                  | Purpose                                                                 |
-| --------------------- | ----------------------------------------------------------------------- |
-| `types/project.ts`    | `Project`, `ProjectStatus` and `ProjectLink` shapes.                    |
-| `types/experience.ts` | `ExperienceEntry` shape.                                                |
-| `types/skill.ts`      | `SkillCategory` shape.                                                  |
-| `data/projects.ts`    | Three projects, their current statuses and `findProject(slug)`.         |
-| `data/experience.ts`  | Verified UPS roles, accomplishments, responsibilities and technologies. |
-| `data/skills.ts`      | Resume-based skills grouped by category.                                |
-| `data/site.ts`        | Name, title, summary, professional links and education.                 |
+| File                  | Purpose                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| `types/project.ts`    | `Project`, `ProjectStatus` (including status-to-confirm) and `ProjectLink` shapes.        |
+| `types/experience.ts` | `ExperienceEntry` shape.                                                                  |
+| `types/skill.ts`      | `SkillCategory` shape.                                                                    |
+| `data/projects.ts`    | Three project drafts; Watchtower is In Development and two statuses await confirmation.   |
+| `data/experience.ts`  | Resume-derived UPS contributions; unconfirmed numerical metrics are omitted from display. |
+| `data/skills.ts`      | Resume-listed skills grouped by professional or personal-project context.                 |
+| `data/site.ts`        | Name, title, About draft, interests, professional links and education source data.        |
 
 ### `src/hooks/` and `src/styles/`
 

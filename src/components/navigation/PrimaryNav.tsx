@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 import styles from './PrimaryNav.module.css';
 
 const items = [
-  { to: '/#experience', label: 'Experience' },
-  { to: '/#projects', label: 'Projects' },
-  { to: '/#skills', label: 'Skills' },
-  { to: '/#education', label: 'Education' },
-  { to: '/#contact', label: 'Contact' },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/about#contact', label: 'Contact' },
 ] as const;
 
 export function PrimaryNav() {

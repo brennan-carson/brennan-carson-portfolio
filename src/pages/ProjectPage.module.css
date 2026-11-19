@@ -3,8 +3,16 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-4);
-  max-width: 44rem;
-  padding-block: var(--space-12);
+  max-width: 54rem;
+  margin-inline: auto;
+  padding-block: var(--space-16);
+}
+
+.article > a {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-decoration-color: var(--color-accent);
 }
 
 .header {
@@ -12,6 +20,11 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3) var(--space-4);
+}
+
+.header h1 {
+  font-size: var(--text-page-title);
+  letter-spacing: -0.05em;
 }
 
 .tagline {
@@ -29,4 +42,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+}
+
+.article > p:not(.tagline) {
+  max-width: 48rem;
+  line-height: 1.8;
 }

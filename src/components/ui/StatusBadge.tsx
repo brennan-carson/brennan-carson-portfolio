@@ -5,6 +5,7 @@ const labels: Record<ProjectStatus, string> = {
   'in-development': 'In Development',
   completed: 'Completed',
   planned: 'Planned',
+  'status-to-confirm': 'Status to Confirm',
 };
 
 export function StatusBadge({ status }: { status: ProjectStatus }) {

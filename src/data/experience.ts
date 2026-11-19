@@ -7,12 +7,10 @@ export const experience: readonly ExperienceEntry[] = [
     company: 'UPS',
     startDate: 'June 2025',
     endDate: 'Present',
-    location: 'Jeffersonville, IN',
     accomplishments: [
-      'Built a Python/LangChain natural-language data retrieval platform using SQL for 150+ internal users, reducing average retrieval time by 70%; developed SQL generation, validation, database connectivity, structured responses, and error recovery.',
+      'Built a Python and LangChain natural-language data retrieval tool using SQL. Work included SQL generation and validation, database connectivity, structured responses, and error recovery.',
       'Designed reusable APIs and services connecting internal applications with enterprise data sources, reducing duplicated database-access logic and simplifying downstream development.',
-      'Supported modernization of a mission-critical application serving 5,000+ users across 50+ Linux servers; supported GCP migration and configured Striim CDC pipelines, reducing synchronization latency from about 15 minutes to under 2 minutes.',
-      'Automated deployments, environment setup, and database operations with Python and Bash, reducing manual setup effort by 45%; used Linux diagnostics, logs, SQL, and root-cause analysis to help reduce recurring production issues by 25%.',
+      'Supported modernization of a mission-critical application by configuring Striim CDC pipelines and contributing to GCP migration work.',
     ],
     responsibilities: [],
     technologies: [
@@ -33,11 +31,9 @@ export const experience: readonly ExperienceEntry[] = [
     company: 'UPS',
     startDate: 'June 2024',
     endDate: 'May 2025',
-    location: 'Jeffersonville, IN',
     accomplishments: [
       'Shipped full-stack features with Java, Spring Boot, Angular, and Oracle SQL, including REST APIs, backend logic, database integrations, validation, and exception handling.',
-      'Built reusable services and optimized SQL to reduce redundant database operations; wrote JUnit and Mockito tests to improve regression coverage and reduce test defects.',
-      'Used Git-based reviews and iterative delivery; supported Jenkins CI/CD deployments to OpenShift, helping standardize releases across development and production.',
+      'Built reusable services, optimized SQL to reduce redundant database operations, and wrote JUnit and Mockito tests.',
     ],
     responsibilities: [],
     technologies: [

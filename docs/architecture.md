@@ -29,21 +29,23 @@ Components are grouped by role rather than by page. A component moves into `ui/`
 
 React Router's data router (`createBrowserRouter`) with one layout route wrapping all pages:
 
-- `/` - home (introduction, experience, projects, skills, education, contact sections)
+- `/` - minimal landing page with name, role and navigation
+- `/about` - professional introduction, experience, selected skills, interests and contact; education is held out pending content approval
+- `/projects` - project cards grouped by status
 - `/projects/:slug` - project detail; unknown slugs render the not-found page
 - `*` - not found
 
-Home sections are anchors (`/#projects`). `SiteLayout` scrolls to the hash target after navigation, because React Router does not do this itself.
+About sections use anchors (`/about#contact`). `SiteLayout` scrolls to the hash target after navigation, because React Router does not do this itself.
 
 The router `basename` comes from Vite's `BASE_URL`, so the app works at `/` or under a GitHub Pages sub-path. The route table is exported separately from the browser router so tests can mount it with `createMemoryRouter`.
 
 ## Data organization
 
-Content lives in `src/data/` as typed constants, with types in `src/types/`. Components receive data and render it; they hold no hard-coded content. `site.ts` holds identity, summary, education and professional links. The owner-approved email and LinkedIn links are public; the phone number and resume file are not included.
+Content lives in `src/data/` as typed constants, with types in `src/types/`. Components receive data and render it; they hold no hard-coded content. `site.ts` holds identity, About copy, interests, optional education and professional links. `projects.ts` distinguishes development, completed, planned, and unconfirmed statuses. The owner-approved email and LinkedIn links are public; the phone number and resume file are not included. Unconfirmed project metrics and implementation details are not shown as facts.
 
 ## Styling
 
-- `variables.css` defines design tokens (color, type scale, spacing, radius, layout) as CSS custom properties. Dark is the default; `:root[data-theme='light']` overrides the color tokens.
+- `variables.css` defines design tokens (warm ink/paper colors, copper accent, display/body/mono type, spacing, radius and layout) as CSS custom properties. Dark is the default; `:root[data-theme='light']` overrides the color tokens.
 - `global.css` contains only a reset, element defaults, focus styles, reduced-motion handling and the `.sr-only` utility.
 - Each component owns a co-located `*.module.css` that consumes tokens. Components never hard-code colors.
 
@@ -59,12 +61,13 @@ GitHub Pages hosts the static output at `https://brennan-carson.github.io/brenna
 
 ## Key decisions and alternatives
 
-| Decision                                          | Alternative         | Reason                                                                          |
-| ------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------- |
-| Vite                                              | Next.js, CRA        | Static output, fast tooling, no server needed. CRA is deprecated.               |
-| `BrowserRouter`-style routing                     | `HashRouter`        | Clean URLs. GitHub Pages receives a `404.html` SPA fallback during deployment.  |
-| CSS Modules + variables                           | Tailwind, CSS-in-JS | No extra dependency or runtime, scoped styles, native theming.                  |
-| Typed data files                                  | CMS, Markdown/MDX   | Type-checked content with no infrastructure. Revisit MDX for long case studies. |
-| Vitest + Testing Library                          | Jest                | Shares Vite config and transforms.                                              |
-| ESLint 9 (flat config), strict type-checked rules | Looser presets      | Catches more bugs; `any` is an error. Pinned to 9 for plugin compatibility.     |
-| System font stack                                 | Web fonts           | No external requests, fast, privacy-friendly.                                   |
+| Decision                                                           | Alternative             | Reason                                                                                                  |
+| ------------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------- |
+| Vite                                                               | Next.js, CRA            | Static output, fast tooling, no server needed. CRA is deprecated.                                       |
+| `BrowserRouter`-style routing                                      | `HashRouter`            | Clean URLs. GitHub Pages receives a `404.html` SPA fallback during deployment.                          |
+| CSS Modules + variables                                            | Tailwind, CSS-in-JS     | No extra dependency or runtime, scoped styles, native theming.                                          |
+| Warm paper/ink palette, display serif, and ruled editorial layouts | Generic dashboard cards | Gives the portfolio a distinct print-inspired identity without decoration that implies unbuilt systems. |
+| Typed data files                                                   | CMS, Markdown/MDX       | Type-checked content with no infrastructure. Revisit MDX for long case studies.                         |
+| Vitest + Testing Library                                           | Jest                    | Shares Vite config and transforms.                                                                      |
+| ESLint 9 (flat config), strict type-checked rules                  | Looser presets          | Catches more bugs; `any` is an error. Pinned to 9 for plugin compatibility.                             |
+| System font stack                                                  | Web fonts               | No external requests, fast, privacy-friendly.                                                           |
